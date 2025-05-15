@@ -21,6 +21,7 @@ const thongBaoRouter = require('./routes/thongBaoRouter');
 const canBoKhoaRouter = require('./routes/canBoKhoaRouter');
 const taiKhoanRouter = require('./routes/taiKhoanRouter');
 const importRouter = require('./routes/importRouter');
+const compression = require('compression');
 const AppError = require('./utils/appError');
 
 const app = express();
@@ -83,7 +84,7 @@ app.use((req, res, next) => {
   req.body = deepSanitize(req.body);
   next();
 });
-
+app.use(compression());
 // Định nghĩa các route API
 app.use((req, res, next) => {
   req.resquestTime = new Date().toISOString();
