@@ -66,14 +66,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Giới hạn số lượng request từ một IP để chống tấn công DDoS
-// const limiter = rateLimit({
-//   max: 100,
-//   windowMs: 60 * 60 * 1000,
-//   message:
-//     'Quá nhiều yêu cầu từ địa chỉ IP này. Hãy vui lòng thử lại sau 1 giờ!',
-// });
+const limiter = rateLimit({
+  max: 200,
+  windowMs: 60 * 60 * 500,
+  message:
+    'Quá nhiều yêu cầu từ địa chỉ IP này. Hãy vui lòng thử lại sau 1 giờ!',
+});
 // Áp dụng rate limiting cho tất cả route bắt đầu bằng `/api`
-// app.use('/api', limiter);
+app.use('/api', limiter);
 
 // Ngăn chặn NoSQL Injection bằng cách loại bỏ các dấu `$` và `.`
 app.use(mongoSanitize());
