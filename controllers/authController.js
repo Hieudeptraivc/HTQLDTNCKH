@@ -560,7 +560,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   await account.save({ validateModifiedOnly: true });
 
   try {
-    const resetURL = `${req.protocol}s://${process.env.FRONT_END_HOST}/reset-password/${resetToken}`;
+    const resetURL = `${req.protocol}://${process.env.FRONT_END_HOST}/reset-password/${resetToken}`;
     await emailService.sendPasswordResetEmail({
       email: account.email,
       resetURL,
