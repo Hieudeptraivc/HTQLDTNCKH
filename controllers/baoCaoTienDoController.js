@@ -5,7 +5,7 @@ const APIFeatures = require('../utils/apiFeatures');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/errorAsync');
 const { getDeTaiFilterByRole } = require('../utils/getDeTaiFilterByRole');
-const { getFileMetadata } = require('../utils/uploadGridFS');
+const { getFileMetadata } = require('../utils/uploadGridFs');
 
 exports.createBaoCaoTienDo = catchAsync(async (req, res, next) => {
   if (!req.body.deTai) req.body.deTai = req.params.id;

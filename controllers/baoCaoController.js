@@ -11,7 +11,7 @@ const {
   deleteFromGridFS,
   getFileReadStream,
   getFileMetadata,
-} = require('../utils/uploadGridFS');
+} = require('../utils/uploadGridFs');
 const path = require('path');
 
 exports.createBaoCao = catchAsync(async (req, res, next) => {

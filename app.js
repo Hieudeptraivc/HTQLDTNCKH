@@ -5,6 +5,7 @@ const path = require('path');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
+const compression = require('compression');
 const deepSanitize = require('./utils/deepSanitize');
 const globalAppError = require('./controllers/errorController');
 const khoaRouter = require('./routes/khoaRouter');
@@ -21,7 +22,6 @@ const thongBaoRouter = require('./routes/thongBaoRouter');
 const canBoKhoaRouter = require('./routes/canBoKhoaRouter');
 const taiKhoanRouter = require('./routes/taiKhoanRouter');
 const importRouter = require('./routes/importRouter');
-const compression = require('compression');
 const AppError = require('./utils/appError');
 
 const app = express();

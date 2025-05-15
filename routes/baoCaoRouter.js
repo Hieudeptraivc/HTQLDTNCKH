@@ -15,7 +15,7 @@ const {
 } = require('../controllers/baoCaoController');
 const nhanXetRouter = require('./nhanXetRouter');
 
-const { upload } = require('../utils/uploadGridFS');
+const { upload } = require('../utils/uploadGridFs');
 
 const router = express.Router({ mergeParams: true });
 router.use('/:baoCaoId/nhan-xet/', nhanXetRouter);

@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "start:dev": "nodemon --watch . --ext js,json --ignore public/img/** --env-file=./env/.development.env server.js",
-    "start:prod": "node server.js"
+    "start:prod": "nodemon --env-file=./env/.production.env server.js"
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.5",
