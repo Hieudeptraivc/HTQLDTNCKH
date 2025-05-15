@@ -44,7 +44,7 @@ app.use(
   cors(),
   express.static(path.join(__dirname, 'public/img/users')),
 );
-const allowedOrigins = ['http://127.0.0.1:5173'];
+const allowedOrigins = ['http://127.0.0.1:5173','https://htqldtnckh-fe-9avj.vercel.app/'];
 
 app.use(
   cors({
