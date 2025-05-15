@@ -33,6 +33,7 @@ const app = express();
 //     exposedHeaders: ['Content-Disposition'],
 //   }),
 // );
+app.set('trust proxy', 1); // hoặc true
 app.use(
   '/api/v1/public/template',
   cors(),
