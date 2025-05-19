@@ -46,6 +46,12 @@ const baoCaoTienDoSchema = mongoose.Schema(
     hanNop: {
       type: Date,
       required: [true, 'Tiến độ báo cáo cần thời hạn nộp'],
+      validate: {
+        validator: function (value) {
+          return value > Date.now();
+        },
+        message: 'Hạn nộp phải lớn hơn ngày hiện tại',
+      },
     },
     ngayChinhSuaCuoi: Date,
     nguoiThayDoiCuoi: {
