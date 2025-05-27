@@ -69,10 +69,16 @@ app.use(cookieParser());
 
 // Giới hạn số lượng request từ một IP để chống tấn công DDoS
 const limiter = rateLimit({
-  max: 200,
-  windowMs: 60 * 60 * 500,
-  message:
-    'Quá nhiều yêu cầu từ địa chỉ IP này. Hãy vui lòng thử lại sau 1 giờ!',
+  windowMs: 30 * 60 * 1000, // 30 phút
+  max: 250, // tối đa 250 request mỗi IP
+  standardHeaders: true, // gửi các header chuẩn
+  legacyHeaders: false, // không dùng các header cũ (X-RateLimit-*)
+  handler: (req, res) => {
+    res.status(429).json({
+      error: true,
+      message: 'Quá nhiều yêu cầu từ địa chỉ IP này. Hãy thử lại sau 30 phút!',
+    });
+  },
 });
 // Áp dụng rate limiting cho tất cả route bắt đầu bằng `/api`
 app.use('/api', limiter);
